@@ -1,0 +1,43 @@
+<ion-view view-title="HealthyKart">
+  <ion-content class="padding">
+    
+    <div class="button-bar">
+            <a href="#/filter" class="button button-stable button-block  icon-left ion-android-funnel">Filter</a>
+            <a href="#/sort" class="button button-stable button-block  icon ion-android-restaurant">Sort</a>
+    </div>
+
+   
+      <div class="list card" ng-repeat="item in menu_items">
+        <div class="item item-avatar">
+          <img  ng-src="{{'../img/'+ item.p_image_id}}" >
+          <h2>{{item.p_name}} </h2>
+          <p>${{item.p_price}}</p>
+        </div>
+
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Quantity 
+            </div>
+            <select>
+              <option ng-repeat="i in getNumber(item.p_stock) track by $index" value="{{$index+1}}" >{{$index+1}}</option>
+            </select>
+        </label>
+
+        <a class="item item-icon-left positive" ng-click="addToCart(item.p_id,item.p_image_id,item.p_name,item.p_price)" >
+          <i class="icon ion-android-add-circle"></i>
+          Add To Cart
+        </a>
+      
+      </div>
+      
+
+    <ion-infinite-scroll 
+    ng-if="!noMoreItemsAvailable" 
+    on-infinite="loadMore()" 
+    distance="10%">
+      <ion-infinite-scroll-content
+      loadingSpinner="bubbles">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>
