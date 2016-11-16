@@ -1,13 +1,37 @@
 angular.module('HealthyKartApp.controllers', [])
 
-.controller('indexCtrl', function($scope,sharedCartService) {
+.controller('indexCtrl', function($scope,$rootScope,sharedCartService) {
+
+  $rootScope.item_cart_badge = 0;
+     
+    
+    
+    
  
 })
 
-.controller('filterByCtrl', function($scope,sharedFilterService) {
+.controller('analyzeCtrl', function($scope,$rootScope,nutientsCalculatorService) {
 
+  
+    
+    
+    
+ 
+})
+
+.controller('filterByCtrl', function($scope,sharedFilterService, $ionicHistory) {
+
+    $scope.goBack = function() {
+        $ionicHistory.goBack();
+      };
   $scope.Categories = [
-    {id: 1, name: 'Grains'}
+    {id: 1, name: 'Grains'},
+    {id: 2, name: 'Dairy'},
+    {id: 3, name: 'Meat/Fish/Poultry'},
+    {id: 4, name: 'Frozen Foods'},
+    {id: 5, name: 'Fresh Fruits and Vegetables'},
+    {id: 6, name: 'Beverages'},
+    {id: 7, name: 'Miscellaneous'},
   ];
   
   $scope.getCategory = function(cat_list){
@@ -24,16 +48,20 @@ angular.module('HealthyKartApp.controllers', [])
 
 })
    
-.controller('sortByCtrl', function($scope,sharedFilterService) {
+.controller('sortByCtrl', function($scope,sharedFilterService, $ionicHistory) {
   $scope.sort=function(sort_by){
     sharedFilterService.sort=sort_by;
     console.log('sort',sort_by);    
     window.location.href = "#/tab/items";
   };
+
+$scope.goBack = function() {
+        $ionicHistory.goBack();
+      };
 })
 
 
-.controller('itemsCtrl', function($scope,$http,sharedCartService,sharedFilterService) {
+.controller('itemsCtrl', function($scope,$http,$rootScope,sharedCartService,$ionicPopup,sharedFilterService) {
 
   //put cart after menu
   var cart = sharedCartService.cart;
@@ -66,9 +94,20 @@ angular.module('HealthyKartApp.controllers', [])
   };
 
    //add to cart function
-   $scope.addToCart=function(id,image,name,price){  
-     
-    cart.add(id,image,name,price,1);  
+  
+    $scope.addToCart=function(id,image,name,price,quantity){  
+     if(quantity=="" || quantity==null){
+      var alertPopup = $ionicPopup.alert({
+       title: 'Oops!!',
+       template: 'You forgot to Select Quantity'
+     });
+     }else{
+    check = cart.add(id,image,name,price,quantity);
+
+    if(check==1){
+      $rootScope.item_cart_badge+=1;
+    }}
+
    };  
 
    $scope.getNumber = function(num) {
@@ -77,7 +116,7 @@ angular.module('HealthyKartApp.controllers', [])
     };
 })
 
-.controller('cartCtrl', function($scope,sharedCartService,$ionicPopup,$state) {
+.controller('cartCtrl', function($scope,invoiceService,sharedCartService,$ionicPopup,$state,$http) {
     
     //onload event-- to set the values
     $scope.$on('$stateChangeSuccess', function () {
@@ -91,6 +130,7 @@ angular.module('HealthyKartApp.controllers', [])
       $scope.cart.drop(c_id); 
       $scope.total_qty=sharedCartService.total_qty;
       $scope.total_amount=sharedCartService.total_amount; 
+      $rootScope.item_cart_badge-=1;
       
     };
     
@@ -108,7 +148,24 @@ angular.module('HealthyKartApp.controllers', [])
     
     $scope.checkout=function(){
       if($scope.total_amount>0){
-        $state.go('checkout');
+        var param = {data : $scope.cart, total_amount : $scope.total_amount, total_qty : $scope.total_qty}
+        $http({
+                  method: 'POST',
+                  url: 'http://www.healthykart.16mb.com/invoice.php',
+                  data: param 
+                  
+              }).success(function (response){
+                invoiceService.addInvoiceId(response);
+                
+                invoiceService.addItemsCart($scope.cart);
+               
+                console.log(response);
+                console.log(param);
+                $state.go('checkout');
+      }).error(function(error) {
+        console.log(error);
+      }); 
+        
       }
       else{
         var alertPopup = $ionicPopup.alert({
@@ -120,6 +177,40 @@ angular.module('HealthyKartApp.controllers', [])
 
 })
 
-.controller('checkoutCtrl', function($scope) {
+.controller('checkoutCtrl', function($scope,$http,$rootScope,invoiceService,sharedCartService,nutientsCalculatorService) {
+$scope.invoice_id = invoiceService.getInvoiceId();
+var nutrient = nutientsCalculatorService.nutri;
+$scope.invoiceItems = invoiceService.getItemsCart();
+ $scope.goBacktoCart = function() {
+        window.location.href = "#/tab/cart";
+
+      };
+$scope.goAnalyze = function() {
+        window.location.href = "#/analyze";
+
+};
+var paramt = {data : $scope.invoiceItems, invoice_id: $scope.invoice_id}
+      $http({
+                  method: 'POST',
+                  url: 'http://www.healthykart.16mb.com/nutrients.php',
+                  data: paramt 
+                  
+              }).success(function (response){
+                
+              $scope.healthykart_score = nutientsCalculatorService.calculateTotalNutrient(response);
+               if($scope.healthykart_score < 3.00){
+                $scope.myScore = "poor";
+              }else if($scope.healthykart_score > 3.00 && $scope.healthykart_score < 7.00)
+              {
+                $scope.myScore = "fair";
+              }else
+              {
+                $scope.myScore = "good";
+              }
+                
+      }).error(function(error) {
+        console.log(error);
+      }); 
+//console.log($scope.invoice_id);
 
 });

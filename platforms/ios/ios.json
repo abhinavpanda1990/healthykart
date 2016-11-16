@@ -58,7 +58,7 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.healthykart818716"
         }
     },
     "dependent_plugins": {},
@@ -119,6 +119,6 @@
         "cordova-plugin-splashscreen": "3.2.2",
         "cordova-plugin-statusbar": "2.1.3",
         "cordova-plugin-whitelist": "1.2.2",
-        "ionic-plugin-keyboard": "2.2.1"
+        "ionic-plugin-keyboard": "1.0.8"
     }
 }

@@ -14,6 +14,12 @@ angular.module('HealthyKartApp.routes', [])
       templateUrl: 'templates/checkout.html',
       controller: 'checkoutCtrl'
     })
+
+  .state('analyze', {
+      url: '/analyze',
+      templateUrl: 'templates/analyze.html',
+      controller: 'analyzeCtrl'
+    })
   
   .state('filterBy', {
       url: '/filter',

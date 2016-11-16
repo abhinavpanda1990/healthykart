@@ -1,19 +1,33 @@
 <ion-view title="HealthyKart">
+<ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBacktoCart()">
+        <i class="icon ion-ios-arrow-back"> Back to Cart</i> 
+    </button>
+</ion-nav-buttons>
     <ion-content padding="'true'" class="has-header">
         
         <div class="list card" >
 				<div class="item item-divider">Thank You For Shopping With us!</div>
 				<div class="item item-body">
 					<div>
-						<p>
-							<strong> Your HealthyKart Score is xyz</strong>
-						</p>
+							<h3> Your Invoice number is {{( "00000" + invoice_id).slice(-6) }}</h3>
+							<h2> Your HealthyKart Score is </h2>
+							<div class="wrapper wrapper--high" ng-class="myScore">
+							  <!-- Spinning discs -->
+							  <div class="pie spinner-left"></div>
+							  <div class="pie spinner"></div>
+							  
+							  <!-- Visibility masks -->
+							  <div class="mask"></div>
+							  <div class="mask-right"></div>
+							  
+							  <!-- The content -->
+							  <div class="content">{{healthykart_score | number:2 }}</div>
+							</div>
+          	</div>
 					</div>
-					
-					
+					<button ng-click="goAnalyze()" class="button button-block icon-left ion-heart button-positive">Evaluate My Score</button>
 				</div>
-				<button class="button button-block icon-left ion-heart button-positive">Evaluate My Score</button>
-			</div>
 		
 		
 

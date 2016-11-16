@@ -44,7 +44,8 @@
 		BCF53D4985114E01A22C9721 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E847F91591B4D57AC0FE231 /* CDVSplashScreen.m */; };
 		83264F6C00DB4A9A8C43C675 /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BCDFC438FE42BE89C4A17B /* CDVViewController+SplashScreen.m */; };
 		3C2E9D6683024D34B392AD68 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B1700D03E4B22ACB6F6D8 /* CDVStatusBar.m */; };
-		C301B33216064F13A0E74430 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A54A55D01547BCB67BE11C /* IonicKeyboard.m */; };
+		C7DD5CD1B75B465A8049ADAD /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CB13FB734B6195A9D489 /* IonicKeyboard.m */; };
+		48AE625EB4FE4F7097E05CD1 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 43148DB7C82447F09BD5DBF0 /* UIWebViewExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +121,10 @@
 		A5273DF035334C7984F38173 /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		6D3B1700D03E4B22ACB6F6D8 /* CDVStatusBar.m */ = {isa = PBXFileReference; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		7EC83B7D7FC447728DF9209C /* CDVStatusBar.h */ = {isa = PBXFileReference; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		45A54A55D01547BCB67BE11C /* IonicKeyboard.m */ = {isa = PBXFileReference; name = "IonicKeyboard.m"; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		2D7EDF2525434F1A83290D61 /* IonicKeyboard.h */ = {isa = PBXFileReference; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		77C0CB13FB734B6195A9D489 /* IonicKeyboard.m */ = {isa = PBXFileReference; name = "IonicKeyboard.m"; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		43148DB7C82447F09BD5DBF0 /* UIWebViewExtension.m */ = {isa = PBXFileReference; name = "UIWebViewExtension.m"; path = "ionic-plugin-keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		7F6A265F2F4F4A809CFE5EC3 /* IonicKeyboard.h */ = {isa = PBXFileReference; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		28220C0A401746499428931C /* UIWebViewExtension.h */ = {isa = PBXFileReference; name = "UIWebViewExtension.h"; path = "ionic-plugin-keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +233,10 @@
 				A5273DF035334C7984F38173 /* CDVViewController+SplashScreen.h */,
 				6D3B1700D03E4B22ACB6F6D8 /* CDVStatusBar.m */,
 				7EC83B7D7FC447728DF9209C /* CDVStatusBar.h */,
-				45A54A55D01547BCB67BE11C /* IonicKeyboard.m */,
-				2D7EDF2525434F1A83290D61 /* IonicKeyboard.h */,
+				77C0CB13FB734B6195A9D489 /* IonicKeyboard.m */,
+				43148DB7C82447F09BD5DBF0 /* UIWebViewExtension.m */,
+				7F6A265F2F4F4A809CFE5EC3 /* IonicKeyboard.h */,
+				28220C0A401746499428931C /* UIWebViewExtension.h */,
 			);
 			name = Plugins;
 			path = "HealthyKart/Plugins";
@@ -421,7 +426,8 @@
 				BCF53D4985114E01A22C9721 /* CDVSplashScreen.m in Sources */,
 				83264F6C00DB4A9A8C43C675 /* CDVViewController+SplashScreen.m in Sources */,
 				3C2E9D6683024D34B392AD68 /* CDVStatusBar.m in Sources */,
-				C301B33216064F13A0E74430 /* IonicKeyboard.m in Sources */,
+				C7DD5CD1B75B465A8049ADAD /* IonicKeyboard.m in Sources */,
+				48AE625EB4FE4F7097E05CD1 /* UIWebViewExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

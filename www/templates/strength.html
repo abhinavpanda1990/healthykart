@@ -1,0 +1,33 @@
+<ion-view title="Strengths">
+<ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+        Back 
+    </button>
+</ion-nav-buttons>
+	<ion-content padding="'true'" class="has-header">
+	  <div ><h4 class="balanced">You’ve made some great selections today. Let’s take a look.</h4></div>
+	  <div class="list card" >
+			<div class="item item-text-wrap item-icon-left ">
+				<i class="icon ion-checkmark-circled balanced"></i>
+		    {{feedback1}}
+		  </div>
+
+		  <div class="item item-text-wrap item-icon-left ">
+		    <i class="icon ion-star balanced"></i>
+		    {{feedback2}}
+		  </div>
+		</div>
+
+		<div class=" card" >
+			<div class="item item-text-wrap item-icon-left">
+				<i class="icon ion-flag"></i>
+				{{feedback3}}
+			</div>
+		</div>
+		
+		<a href="#/weakness" class="button button-outline icon-left button-block ion-heart-broken button-assertive">What can i improve?</a>
+
+		<a href="#/strength1" class="button button-outline icon-right button-block ion-arrow-right-a button-royal">Next</a>
+		
+	</ion-content>
+</ion-view>

@@ -1,1 +1,197 @@
 /* Empty. Add your own CSS if you like */
+.platform-android .bar-subheader.has-tabs-top{
+top:93px !important;
+}
+
+.platform-android .has-subheader.has-tabs-top{
+/*top:137px;*/
+}
+
+.bar-subheader{
+    display: block;
+    height: 56px;
+  top:33px;
+}
+
+.poor .content{
+ background-color: #ef473a ;
+}
+
+
+.fair .content{
+  background-color: #ffc900;
+}
+
+
+.good .content{
+ background-color: #33cd5f;
+}
+
+.ionicgreen {
+background-color: #33cd5f;
+}
+
+.ionicred{
+  background-color: #ef473a ;
+}
+
+
+
+
+.wrapper {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 50px;
+  top: 50px;
+  position: relative;
+  background-color: white;
+  border-radius: 250px;
+  -webkit-backface-visibility: hidden;
+  display: inline-block;
+}
+
+.wrapper--high, .wrapper--high * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrapper--high {
+  width: 150px;
+  height: 150px;
+}
+
+.wrapper--high .pie {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
+  position: absolute;
+  background: transparent;
+  border: 18px solid #444;
+  border-radius: 150px;
+}
+
+.wrapper--high .spinner {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  z-index: 200;
+  border-right: none;
+  animation: u1qg3etey--rota 1.3s ease-in 1;
+  transform: rotate(180deg);
+}
+
+.wrapper--high .spinner-left {
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  z-index: 190;
+  border-right: none;
+  animation: u1qg3etey--rota-left 1.3s ease-out 1;
+  transform: rotate(360deg);
+}
+
+.wrapper--high .mask {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  z-index: 300;
+  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
+  opacity: 0;
+  animation: u1qg3etey--opa 1.3s steps(1, end) 1;
+}
+
+.wrapper--high .mask-right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: inherit;
+  opacity: 1;
+  z-index: 195;
+  right: 0;
+  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
+}
+
+@keyframes u1qg3etey--rota {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes u1qg3etey--rota-left {
+  0% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes u1qg3etey--opa {
+  0% {
+    opacity: 1;
+  }
+  50%, 99% {
+    opacity: 0;
+  }
+}
+@keyframes u1qg3etey--fill-opa {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+/* MIDDLE CONTENT */
+@keyframes u1qg3etey--pop {
+  0% {
+    opacity: 0;
+    transform: scale3d(0, 0, 0);
+  }
+  70% {
+    transform: scale3d(1.4, 1.4, 1.4);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.wrapper--high .content {
+  
+  width: 116px;
+  height: 116px;
+  z-index: 1001;
+  position: absolute;
+  border-radius: 150px;
+  font-size: 54px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 114px;
+  color: #11482d;
+  margin: 17px;
+  animation: u1qg3etey--pop 1.3s ease-in-out 1;
+}
+
+/* ARROW */
+.wrapper--high .spinner::after,
+.wrapper--high .spinner-left::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -18px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 0 9px 9px;
+  border-color: transparent transparent transparent #444;
+  margin-left: 9px;
+  transform: scale(0.9999);
+  z-index: 500;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}
+

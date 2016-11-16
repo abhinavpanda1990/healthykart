@@ -1,4 +1,9 @@
 <ion-view title="Filter By">
+    <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBack()">
+        <i class="icon ion-ios-arrow-back"> Back</i> 
+    </button>
+</ion-nav-buttons>
     <ion-content padding="'true'" class="has-header">
         
 
@@ -6,12 +11,12 @@
 		
 			<ion-list ng-repeat="category in Categories">     
 				  <ion-checkbox ng-model="category.selected">
-					<h2 class="calm">{{category.name}}</h2>
+					<h2 class="positive">{{category.name}}</h2>
 				  </ion-checkbox>
 			  </ion-list>
 			  
 			  <div class="list box">
-				<button class="button button-block button-calm" type="submit">Apply</button>
+				<button class="button button-block button-positive" type="submit">Apply</button>
 			  </div>
 		  
 		</form>
